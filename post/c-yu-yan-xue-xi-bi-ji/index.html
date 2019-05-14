@@ -1,0 +1,148 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C语言学习笔记 | Z欢喜</title>
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1557820880997">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaofans.github.io">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1557820880997" alt="">
+  </a>
+  <h1 class="site-title">
+    Z欢喜
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              C语言学习笔记
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-05-14 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <h1 id="程序设计与c语言">程序设计与C语言</h1>
+<ul>
+<li>1.世界语言排名网站 https://www.tiobe.com/tiobe-index/</li>
+<li>2.C语言编程软件IDE Dev C++</li>
+<li>c语言是一种编译型的语言</li>
+</ul>
+<h1 id="计算">计算</h1>
+<ul>
+<li>表达式的概念 &quot;=&quot;是赋值运算符，有运算符的式子就叫做表达式。</li>
+<li>const修饰符代表常量，不可变变量。</li>
+<li>float和double:float单精度浮点数，double双精度浮点数。</li>
+<li>运算符(operator)是指进行运算的动作，比如加法运算符&quot;+&quot;，减法运算符&quot;-&quot;。</li>
+<li>算子(operand)是指参与运算的值，这个值可能是常数，也可能是变量，还可能是一个方法的返回值。</li>
+<li>单目运算符概念:只有一个算子的运算符：+、-</li>
+<li>赋值运算符：赋值也是 运算，也有结果。</li>
+<li>程序是按步执行的。</li>
+<li>count++代表给count加1，表达式的值是count原来的值</li>
+<li>++count给count加1，表达式的值是count+1以后的值</li>
+</ul>
+<h1 id="数据类型">数据类型</h1>
+<ul>
+<li>unsigned:在整形类型前面加unsigned使得它们成为无符号的整数(没有负数，都是整数)，unsigned的初衷并非扩展所能表达的范围，为是为了做纯二进制运算，主要是为了移位。</li>
+<li>8进制和16进制，一个以0开始的数字字面量是8进制，一个以0x开始的数字字面量是16进制，%o用于8进制，%x用于16进制。</li>
+</ul>
+<h1 id="指针">指针</h1>
+<ul>
+<li>指针前面的※是一个单目运算符，用来访问指针的值所表示的地址上的变量，可以做右值也可以做左值 int k = *p; *p = k+1;</li>
+<li>指针的运用场景:1.交换两个变量的值 2.函数返回多个值，某些值就只能通过指针返回</li>
+<li>指针最常见的错误:定义了指针变量，还没有指向任何变量，就开始使用指针。</li>
+<li>数组变量是特殊的指针，所以 int a[10]; int *p = a;但是数组的单元表达的是变量，需要用&amp;取地址,,a==&amp;a[0]。运算符[]可以对数组做，也可以对指针做p[0] a[0]。数组变量是const的指针，所以不能被赋值。</li>
+</ul>
+<h1 id="结构类型">结构类型</h1>
+<h1 id="程序结构">程序结构</h1>
+<p>#开头的是编译预处理指令，它们不是c语言的成分，但是c语言离不开它们
+#define用来定义一个宏，#define &lt;名字&gt; &lt;值&gt;，没有分号结尾，因为不是C的语句，名字必须是一个单词，值可以是各种东西。在C语言的编译器开是编译之前，编译预处理程序(cpp)会把程序中的名字换成值。完全的文本替换。</p>
+<h1 id="大程序结构">大程序结构</h1>
+<ul>
+<li>头文件，把函数的原型放到一个头文件(以.h结尾)中，在需要调用这个函数的源代码文件(.c)中#inclue这个头文件，就能让编译器在编译的时候知道函数的原型。</li>
+<li>#include是一个编译预处理指令，和宏一样，在编译之前就处理了</li>
+<li>它把那个文件的全部文本内容原封不动地插入到它所在的地方</li>
+<li>所以也不是一定要在.c文件的最前面#include</li>
+<li>include &quot;a.h&quot; 编译器在当前目录(.c文件所在的目录)寻找这个文件，如果没有，到编译器指定的目录去找。include &lt;a.h&gt; 让编译器只在指定的目录去找，编译器知道自己的标准库的头文件在哪里。</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+    
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
