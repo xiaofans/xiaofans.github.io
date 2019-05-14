@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>C语言学习笔记 | Z欢喜</title>
-<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1557821905476">
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1557827716770">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
 
@@ -18,7 +18,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://xiaofans.github.io">
-  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1557821905476" alt="">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1557827716770" alt="">
   </a>
   <h1 class="site-title">
     Z欢喜
@@ -114,9 +114,12 @@
 <li>数组变量是特殊的指针，所以 int a[10]; int *p = a;但是数组的单元表达的是变量，需要用&amp;取地址,,a==&amp;a[0]。运算符[]可以对数组做，也可以对指针做p[0] a[0]。数组变量是const的指针，所以不能被赋值。</li>
 </ul>
 <h1 id="结构类型">结构类型</h1>
+<p>Typedef:声明新的类型的名字,新的名字是某种类型的别名，改善了程序的可读性。Typedef int Length; // Length就等价于int类型。</p>
 <h1 id="程序结构">程序结构</h1>
-<p>#开头的是编译预处理指令，它们不是c语言的成分，但是c语言离不开它们
-#define用来定义一个宏，#define &lt;名字&gt; &lt;值&gt;，没有分号结尾，因为不是C的语句，名字必须是一个单词，值可以是各种东西。在C语言的编译器开是编译之前，编译预处理程序(cpp)会把程序中的名字换成值。完全的文本替换。</p>
+<ul>
+<li>#开头的是编译预处理指令，它们不是c语言的成分，但是c语言离不开它们</li>
+<li>#define用来定义一个宏，#define &lt;名字&gt; &lt;值&gt;，没有分号结尾，因为不是C的语句，名字必须是一个单词，值可以是各种东西。在C语言的编译器开是编译之前，编译预处理程序(cpp)会把程序中的名字换成值。完全的文本替换。</li>
+</ul>
 <h1 id="大程序结构">大程序结构</h1>
 <ul>
 <li>头文件，把函数的原型放到一个头文件(以.h结尾)中，在需要调用这个函数的源代码文件(.c)中#inclue这个头文件，就能让编译器在编译的时候知道函数的原型。</li>
