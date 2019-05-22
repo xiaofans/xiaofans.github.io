@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dart学习笔记1 | Z欢喜</title>
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1558523009326">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaofans.github.io">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1558523009326" alt="">
+  </a>
+  <h1 class="site-title">
+    Z欢喜
+  </h1>
+  <p class="site-description">
+    儿童相见不相识，笑问客从何处来。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Dart学习笔记1
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-05-22 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <p><strong>Dart是什么?</strong>
+Dart是一个开源的、结构化的用于快速地构建复杂的基于浏览器的web程序。Dart开源通过转换成js在浏览器上运行。
+它的语法和Java、C#、Javascript非常类似。</p>
+<pre><code>void main(){   // main 函数 入口
+  var d = &quot;Dart&quot;; //  可以未指定声明类型
+  String w = &quot;World&quot;; // 指定声明类型
+  
+  print(&quot;Hello $d $w&quot;);
+}
+</code></pre>
+<p><strong>Dart 与java的不同</strong></p>
+<ul>
+<li>shorthand标记=&gt;，可以被用于仅有一行的函数体，</li>
+</ul>
+<pre><code>String sayHello(name) =&gt; &quot;Hello $name&quot;;
+</code></pre>
+<ul>
+<li>top-level functions，不需要一定定义类，dart可以直接运行顶层方法。</li>
+<li>使用类结构定义接口</li>
+<li>工厂构造方法提供默认实现。</li>
+</ul>
+<pre><code>
+void topLevelFun(){
+  print(&quot;I am form top level&quot;);
+}
+
+abstract class IGreetable{
+  String sayHello(String name);
+
+  factory IGreetable(){
+    return new Greeter();
+  }
+}
+
+class Greeter implements IGreetable{
+  @override
+  String sayHello(String name) {
+    return &quot;Hello $name&quot;;
+  }
+}
+
+void main(){
+  topLevelFun();
+  IGreetable myGreetable = new IGreetable();
+  var message = myGreetable.sayHello(&quot;Dart&quot;);
+  print(message);
+}
+</code></pre>
+<ul>
+<li>方法可以作为参数传递、赋值，调用。</li>
+</ul>
+<pre><code>String sayHello(name) =&gt; &quot;Hello $name&quot;;
+
+void main(){
+
+  var myFunc = sayHello;
+  print(myFunc(&quot;World&quot;));
+
+  var  mySumFunc = (a,b){
+    return a+b;
+  };// 声明匿名方法
+
+  var c = mySumFunc(1,2);
+  print(c);
+}
+</code></pre>
+<ul>
+<li>并发与 isolates*[ˈaɪsəleɪts] iseleici*</li>
+</ul>
+<p>Dart的执行与Java类似，是单线程语言，不同于线程和进程,Dart通过isolates实现并发，isolates是一个工作单元，有自己的内存分配空间，这样有助于提供一个独立的安全模型， 每一个isolated可以通过传递消息(messages)给别的isolates。</p>
+<p>isolates还可以被用来动态的加载额外的代码，这段代码可以在加载带isolates的独立内存中运行，通过传递消息进行沟通，这个功能可以用于插件机制。</p>
+<p>当isolates转化成为JavaScript，它们就变成了HTML5的works。</p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaofans.github.io/post/c-yu-yan-xue-xi-bi-ji">
+              <h3 class="post-title">
+                C语言学习笔记
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
