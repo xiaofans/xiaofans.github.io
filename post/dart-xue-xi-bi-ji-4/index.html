@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dart学习笔记2 | Z欢喜</title>
+<title>Dart 学习笔记4 | Z欢喜</title>
 <link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1559115821522">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
@@ -72,59 +72,32 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Dart学习笔记2
+              Dart 学习笔记4
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-05-27 ·
+                · 2019-05-29 ·
               </time>
               
             </div>
             
             <div class="post-content">
               <ul>
-<li>所有的函数都有一个返回值，对于单行(Single-line shorthand)方法，这个返回值是单行表达式的结果。除此之外，函数的返回值默认是null直到你定义了一个返回值。</li>
-<li>如果需要，你可以在函数名字前定义你需要的返回类型，这个返回类型在Dart中是可选的，如果不定义，那么会返回一个dynamic类型的结果。当然，也可以使用void来表示函数并没有一个返回类型。</li>
+<li>多个构造方法的使用</li>
 </ul>
-<pre><code>pls(int a,int b){
-  return a+b;
+<pre><code>class A1{
+
+  A1(){
+    print(&quot;111&quot;);
+  }
+
+
+ // 这点与java不同，使用类名加上.来声明构造方法，有点类似于单例模式
+  A1.aa1(int a){
+
+      print(a);
+  }
 }
-
-// pls_1 == pls_2
-dynamic pls_1(int a,int b){
-  return a + b;
-}
-
-int pls_2(int a,int b){
-  return a + b;
-}
-</code></pre>
-<ul>
-<li>可选位置参数，使用中括号标识可选参数</li>
-</ul>
-<pre><code>// 使用中括号来标识可选参数
-a(int a1,[int a2,int a3]){
-
-}
-
-
-// 可选参数，赋以默认值
-b(int b1,[int b2 = 1,int b3 = 2]){
-
-}
-</code></pre>
-<ul>
-<li>可选命名参数，与可选位置参数的区别是，调用的时候，参数名必须被指定</li>
-</ul>
-<pre><code>// 可选命名参数，使用大括号标识，参数的默认值的赋值使用冒号
-b(int b1,{int b2 : 1,int b3 : 2}){
-
-  print(b1+b2+b3);
-}
-
-//调用
-b(1,b2: 1,b3: 1);
-
 </code></pre>
 
             </div>
@@ -134,9 +107,9 @@ b(1,b2: 1,b3: 1);
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://xiaofans.github.io/post/dart-xue-xi-bi-ji-1">
+            <a href="https://xiaofans.github.io/post/dart-xue-xi-bi-ji-3">
               <h3 class="post-title">
-                Dart学习笔记1
+                Dart学习笔记3
               </h3>
             </a>
           </div>  

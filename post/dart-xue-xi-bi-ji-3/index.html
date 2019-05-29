@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dart学习笔记2 | Z欢喜</title>
+<title>Dart学习笔记3 | Z欢喜</title>
 <link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1559115821522">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
@@ -72,59 +72,39 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Dart学习笔记2
+              Dart学习笔记3
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-05-27 ·
+                · 2019-05-29 ·
               </time>
               
             </div>
             
             <div class="post-content">
               <ul>
-<li>所有的函数都有一个返回值，对于单行(Single-line shorthand)方法，这个返回值是单行表达式的结果。除此之外，函数的返回值默认是null直到你定义了一个返回值。</li>
-<li>如果需要，你可以在函数名字前定义你需要的返回类型，这个返回类型在Dart中是可选的，如果不定义，那么会返回一个dynamic类型的结果。当然，也可以使用void来表示函数并没有一个返回类型。</li>
+<li>
+<p><strong>first-class-functions 头等函数</strong> 在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数，函数的返回值，赋值给变量或存储在数据结构中。头等函数是函数式程序设计所必须的，通常要使用<strong>高阶函数</strong>。</p>
+</li>
+<li>
+<p><strong>higher-order function 高阶函数</strong> 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数:
+1. 接受一个或多个函数作为输入
+2. 输出一个函数
+在数学中它们也叫做算子(运算符)或泛函，微积分中的导数就是常见的例子，因为它映射一个函数到另一个函数。</p>
+</li>
+<li>
+<p>闭包(Closure),又称<strong>词法闭包</strong>或<strong>函数闭包</strong>，是引用的自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造他的环境也不例外。所以，有另一种说法认为闭包是由函数和与其他的引用环境组合而成的实体。(维基百科)。it’s a function that retains a reference to variables  that were in its scope when it was declared.</p>
+</li>
 </ul>
-<pre><code>pls(int a,int b){
-  return a+b;
+<pre><code>// 闭包的例子
+getShovel(){
+		var stickyMud = new Mud();
+		var mix = (item1,item2){
+			return stickyMud +item1 + item2;
+		}
+		
+		return mix;
 }
-
-// pls_1 == pls_2
-dynamic pls_1(int a,int b){
-  return a + b;
-}
-
-int pls_2(int a,int b){
-  return a + b;
-}
-</code></pre>
-<ul>
-<li>可选位置参数，使用中括号标识可选参数</li>
-</ul>
-<pre><code>// 使用中括号来标识可选参数
-a(int a1,[int a2,int a3]){
-
-}
-
-
-// 可选参数，赋以默认值
-b(int b1,[int b2 = 1,int b3 = 2]){
-
-}
-</code></pre>
-<ul>
-<li>可选命名参数，与可选位置参数的区别是，调用的时候，参数名必须被指定</li>
-</ul>
-<pre><code>// 可选命名参数，使用大括号标识，参数的默认值的赋值使用冒号
-b(int b1,{int b2 : 1,int b3 : 2}){
-
-  print(b1+b2+b3);
-}
-
-//调用
-b(1,b2: 1,b3: 1);
-
 </code></pre>
 
             </div>
@@ -134,9 +114,9 @@ b(1,b2: 1,b3: 1);
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://xiaofans.github.io/post/dart-xue-xi-bi-ji-1">
+            <a href="https://xiaofans.github.io/post/dart-xue-xi-bi-ji-2">
               <h3 class="post-title">
-                Dart学习笔记1
+                Dart学习笔记2
               </h3>
             </a>
           </div>  
