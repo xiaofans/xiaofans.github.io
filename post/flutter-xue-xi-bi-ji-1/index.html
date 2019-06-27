@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Flutter学习笔记1 | Z欢喜</title>
-<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1561637991353">
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1561638561710">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
 
@@ -18,7 +18,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://xiaofans.github.io">
-  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1561637991353" alt="">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1561638561710" alt="">
   </a>
   <h1 class="site-title">
     Z欢喜
@@ -114,6 +114,19 @@ class HelloWordApp extends StatelessWidget{
         textDirection: TextDirection.ltr,
       ),
     );
+  }
+}
+</code></pre>
+<p><strong>理解Flutter属性赋值的用法，回到dart语法</strong></p>
+<pre><code>void main() {
+  var ka1 = KnowAttr(&quot;1&quot;, attr2: 1);
+}
+
+class KnowAttr{
+  dynamic attr1;
+  final attr2;
+  KnowAttr(attr1, {this.attr2}){
+      this.attr1 = attr1;
   }
 }
 </code></pre>
