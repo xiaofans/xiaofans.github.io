@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Flutter学习笔记1 | Z欢喜</title>
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1561637991353">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaofans.github.io">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1561637991353" alt="">
+  </a>
+  <h1 class="site-title">
+    Z欢喜
+  </h1>
+  <p class="site-description">
+    儿童相见不相识，笑问客从何处来。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Flutter学习笔记1
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-06-27 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <p><strong>Flutter是什么?</strong></p>
+<p>Flutter是谷歌的开源的垮平台(不限于Android和Ios)的移动应用框架。有以下特性：响应式的框架，高速的2D渲染引擎。</p>
+<p><strong>Flutter为什么选择dart语言?</strong></p>
+<p>Dart是一个简洁的、强类型的面向对象的编程语言。
+<strong>性能</strong>，包含了两种编译模式Just-In-Time(即时编译)和Ahead-Of-Time(运行前编译)。JIT使Flutter在应用运行时同时执行代码编译，这就让Flutter具备了极速的开发体验，具备了亚秒级的热重载(Hot Reloading)特性。AOT运行前编译意思是将代码库直接编译成原生的ARM指令集，这样就使得App有了快速的启动速度和可预见的卓越性能。Dart同时具有强类型和类型推导的特性。这样可以让bug暴露于编译期间，更放心地应付代码量的增长。</p>
+<p><strong>Widget是Flutter应用的基础单元</strong><br>
+<img src="https://xiaofans.github.io/post-images/1561637130554.png" alt=""></p>
+<p><strong>StatelessWidget</strong>:无状态的控件，这意味着该Widget一旦创建，它所有属性都是最终状态。在widget创建的时候我们可以传递参数 比如背景颜色来设置widget的属性，但是一旦创建好之后，这些属性是不可变的。</p>
+<p>StatefulWidget:有状态的控件，它们可以创建State对象。</p>
+<p><strong>Flutter的2d渲染引擎使用的是Skia，它提供了再ios和Android平台绘制Widget的能力</strong></p>
+<p><img src="https://xiaofans.github.io/post-images/1561637466676.png" alt=""></p>
+<p><strong>从HelloWord说起</strong></p>
+<pre><code>// lib/main.dart
+// main函数,fltter入口
+void main() {
+ //调用runApp方法，传入类型是Widget控件
+  runApp(HelloWordApp());
+}
+
+// 写一个控件，继承StatelessWidget，这个控件代表无状态，控件一旦赋值，不可改变。
+class HelloWordApp extends StatelessWidget{
+	// 
+  @override
+  Widget build(BuildContext context) {
+	 // 创建Center控件，这其实一个类，在构造方法内传入属性，child。
+    return Center(
+		// 同理，创建Text控件，传递两个属性，一个是string，另外一个是对象。
+      child: Text(
+        'Hello World!',
+        textDirection: TextDirection.ltr,
+      ),
+    );
+  }
+}
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaofans.github.io/post/dart-xue-xi-bi-ji-4">
+              <h3 class="post-title">
+                Dart 学习笔记4
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
