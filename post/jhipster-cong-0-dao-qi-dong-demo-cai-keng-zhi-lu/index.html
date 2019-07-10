@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dart学习笔记3 | Z欢喜</title>
+<title>jhipster从0到启动demo踩坑之旅 | Z欢喜</title>
 <link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1562728265352">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
@@ -72,43 +72,58 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Dart学习笔记3
+              jhipster从0到启动demo踩坑之旅
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-05-29 ·
+                · 2019-07-09 ·
               </time>
               
             </div>
             
             <div class="post-content">
-              <ul>
-<li>
-<p><strong>first-class-functions 头等函数</strong> 在程序设计语言中，函数被当作头等公民。这意味着，函数可以作为别的函数的参数，函数的返回值，赋值给变量或存储在数据结构中。头等函数是函数式程序设计所必须的，通常要使用<strong>高阶函数</strong>。</p>
-</li>
-<li>
-<p><strong>higher-order function 高阶函数</strong> 在数学和计算机科学中，高阶函数是至少满足下列一个条件的函数:
-1. 接受一个或多个函数作为输入
-2. 输出一个函数
-在数学中它们也叫做算子(运算符)或泛函，微积分中的导数就是常见的例子，因为它映射一个函数到另一个函数。</p>
-</li>
-<li>
-<p>闭包(Closure),又称<strong>词法闭包</strong>或<strong>函数闭包</strong>，是引用的自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造他的环境也不例外。所以，有另一种说法认为闭包是由函数和与其他的引用环境组合而成的实体。(维基百科)。it’s a function that retains a reference to variables  that were in its scope when it was declared.
-闭包的第二个说法:闭包是由函数和与其相关的引用环境组合而成的实体。</p>
-</li>
-</ul>
-<pre><code>// 闭包的例子
-getShovel(){
-		var stickyMud = new Mud();
-		var mix = (item1,item2){
-			return stickyMud +item1 + item2;
-		}
-		
-		return mix;
+              <p>jhipster是一个集成框架，对于我这个搞前端的人来说，入门后端很是方便，经过一下午的研究，终于配置好了，可以启动服务，在并在浏览器器中打开。<br>
+参考链接:<a href="https://github.com/mraible/jhipster5-demo">参考网站</a><br>
+1.安装文中所需要的软件。<br>
+2.在我电脑上，一次就ok的配置选项。<br>
+包管理选择maven<br>
+前端框架选择angularX<br>
+单元测试工具 不选择<br>
+上面三项在我选择别的，如gardle,react,protractor.均报不同的错误。<br>
+下面贴出我的配置文件.yo-rc.json</p>
+<pre><code>{
+  &quot;generator-jhipster&quot;: {
+    &quot;promptValues&quot;: {
+      &quot;packageName&quot;: &quot;xyz.laughsee.xiaotiku&quot;
+    },
+    &quot;jhipsterVersion&quot;: &quot;5.0.1&quot;,
+    &quot;applicationType&quot;: &quot;monolith&quot;,
+    &quot;baseName&quot;: &quot;xiaotiku&quot;,
+    &quot;packageName&quot;: &quot;xyz.laughsee.xiaotiku&quot;,
+    &quot;packageFolder&quot;: &quot;xyz/laughsee/xiaotiku&quot;,
+    &quot;serverPort&quot;: &quot;8080&quot;,
+    &quot;authenticationType&quot;: &quot;jwt&quot;,
+    &quot;cacheProvider&quot;: &quot;ehcache&quot;,
+    &quot;enableHibernateCache&quot;: true,
+    &quot;websocket&quot;: false,
+    &quot;databaseType&quot;: &quot;sql&quot;,
+    &quot;devDatabaseType&quot;: &quot;h2Disk&quot;,
+    &quot;prodDatabaseType&quot;: &quot;mysql&quot;,
+    &quot;searchEngine&quot;: false,
+    &quot;messageBroker&quot;: false,
+    &quot;serviceDiscoveryType&quot;: false,
+    &quot;buildTool&quot;: &quot;maven&quot;,
+    &quot;enableSwaggerCodegen&quot;: false,
+    &quot;jwtSecretKey&quot;: &quot;5cc791d4be6254228bb84fb3a685c9e60a34a810&quot;,
+    &quot;clientFramework&quot;: &quot;angularX&quot;,
+    &quot;useSass&quot;: false,
+    &quot;clientPackageManager&quot;: &quot;yarn&quot;,
+    &quot;testFrameworks&quot;: [],
+    &quot;jhiPrefix&quot;: &quot;jhi&quot;,
+    &quot;enableTranslation&quot;: false
+  }
 }
 </code></pre>
-<p><a href="%E9%97%AD%E5%8C%85%E8%BE%83%E4%B8%BA%E7%BB%86%E8%87%B4%E7%9A%84%E6%8F%8F%E8%BF%B0">https://www.ibm.com/developerworks/cn/linux/l-cn-closure/</a>
-<a href="%E9%97%AD%E5%8C%85%E6%AF%94%E8%BE%83%E7%BB%86%E8%87%B4%E7%9A%84%E6%8F%8F%E8%BF%B02">https://www.ibm.com/developerworks/cn/java/j-cb01097.html</a></p>
 
             </div>
           </article>
@@ -117,9 +132,9 @@ getShovel(){
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://xiaofans.github.io/post/dart-xue-xi-bi-ji-2">
+            <a href="https://xiaofans.github.io/post/flutter-xue-xi-bi-ji-1">
               <h3 class="post-title">
-                Dart学习笔记2
+                Flutter学习笔记1
               </h3>
             </a>
           </div>  
