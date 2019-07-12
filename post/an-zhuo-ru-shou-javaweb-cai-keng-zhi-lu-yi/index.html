@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>安卓入手JavaWeb踩坑之旅（一） | Z欢喜</title>
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1562922457159">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaofans.github.io">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1562922457159" alt="">
+  </a>
+  <h1 class="site-title">
+    Z欢喜
+  </h1>
+  <p class="site-description">
+    儿童相见不相识，笑问客从何处来。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              安卓入手JavaWeb踩坑之旅（一）
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-07-12 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <h2 id="1java-web开发现在流行什么技术">1.Java web开发，现在流行什么技术？</h2>
+<p>在boss直聘上搜java职位，总结出大概一下要求的关键字
+<strong>关键字</strong>
+spring，spring mvc，mybatis<br>
+ioc、aop、jvm
+radis
+mysql</p>
+<h2 id="2开发工具">2.开发工具</h2>
+<p>通过调研，开发工具一般选择IDEA(用IntelliJ IDEA ) + maven 进行构建项目
+参考链接：<a href="https://blog.csdn.net/myarrow/article/details/50824793">开发工具参考</a></p>
+<p><strong>Maven</strong>是一个远程的第三方jar库，下好idea后，在Setting中，搜索&quot;maven&quot;，可以进行配置，我使用的是idea自带的配置，bundled(Maven 3)</p>
+<h2 id="3构建一个项目">3.构建一个项目</h2>
+<p><strong>我使用的IDEA版本为2019.1.3</strong></p>
+<ul>
+<li>
+<p>1.File -》 New -》 Project</p>
+</li>
+<li>
+<p>2选择Maven，勾选 create from archetype，选中.......-archetypetype-webapp
+<img src="https://xiaofans.github.io/post-images/1562918832470.png" alt=""></p>
+</li>
+<li>
+<p>3 填入groupId和ArtifactId，点击Next
+<img src="https://xiaofans.github.io/post-images/1562918923100.png" alt=""></p>
+</li>
+<li>
+<p>4 出现如下图所示
+<img src="https://xiaofans.github.io/post-images/1562919023546.png" alt=""></p>
+</li>
+<li>
+<p>5 然后点击Finish，接着会Build一段时间，出现BUILD SUCCESS 的提示。
+<img src="https://xiaofans.github.io/post-images/1562919219489.png" alt=""></p>
+</li>
+<li>
+<p>6.配置Tomcat(需要下载好，我下载的版本是apache-tomcat-9.0.22)，点击Add Configuration。
+<img src="https://xiaofans.github.io/post-images/1562920956921.png" alt=""></p>
+</li>
+<li>
+<p>7.点击&quot;+&quot;号，找到Tomact Server，选择Local，如果找不到Tomact Server，需要往下拉，选择33 more items，因为idea只显示的部分可以添加的选项，选择下载好的解压后的(bin的上一级)目录，之后选择development,点击加号，选择Artifacts，然后选择...war explored.点击apply
+<img src="https://xiaofans.github.io/post-images/1562921354717.png" alt="">
+<img src="https://xiaofans.github.io/post-images/1562921456840.png" alt=""></p>
+</li>
+<li>
+<p>8这个时候，tomact已经配置好，点击启动按钮即可启动
+<img src="https://xiaofans.github.io/post-images/1562921562245.png" alt="">
+<img src="https://xiaofans.github.io/post-images/1562921599234.png" alt=""></p>
+</li>
+<li>
+<p>9创建java源文件目录，选中main目录，右键，New -》 Directory 输入java，然后，选中File-》Project Structure，在新建的java目录下右键，Sources即可。</p>
+</li>
+<li>
+<p>10 解决tomact乱码，启动后，发现IDEA console，启动服务器乱码，经过搜索，解决方案如下:</p>
+</li>
+</ul>
+<pre><code>// 1.修改apache-tomcat-9.0.14-windows-x64/conf/logging.properties
+//2、添加语句：java.util.logging.ConsoleHandler.encoding = GBK
+//3、重启tomcat，查看日志数据即可
+</code></pre>
+<p><a href="https://blog.csdn.net/cm777/article/details/81742396">参考链接</a>下方评论</p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaofans.github.io/post/jhipster-cong-0-dao-qi-dong-demo-cai-keng-zhi-lu">
+              <h3 class="post-title">
+                jhipster从0到启动demo踩坑之旅
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
