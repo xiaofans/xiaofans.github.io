@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>安卓开发入手JavaWeb踩坑之旅（二）servlet | Z欢喜</title>
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1563266890586">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaofans.github.io">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1563266890586" alt="">
+  </a>
+  <h1 class="site-title">
+    Z欢喜
+  </h1>
+  <p class="site-description">
+    儿童相见不相识，笑问客从何处来。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              安卓开发入手JavaWeb踩坑之旅（二）servlet
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-07-12 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="servlet是什么"><strong>Servlet是什么?</strong></h3>
+<p>Servlet是一个Java编写的服务端程序，用来处理和相应任何类型的请求，绝大多数情况下，Servlet只用来扩展基于HTTP协议的Web服务器。</p>
+<h3 id="servlet工作模式"><strong>Servlet工作模式</strong></h3>
+<ol>
+<li>客户端发送请求至服务器</li>
+<li>服务器启动并调用Servlet，Servlet根据客户端请求生成响应内容并将其传给服务器。</li>
+<li>服务器将响应返回给客户端。</li>
+</ol>
+<h3 id="生命周期"><strong>生命周期</strong></h3>
+<p>当servlet被部署在应用服务器中(应用服务器中用于管理Java组件的部分被抽象成为<strong>容器</strong>)，由容器控制servlet的声明周期。除非特殊指定，否则在容器启动的时候，servlet是不会被加载的，servlet只会在第一次请求的时候被加载和实例化。servlet一旦被加载，一般不会从容器中删除，直到应用服务器关闭或重新启动。但当容器做内存回收动作时，servlet有可能被删除。</p>
+<h3 id="servlet与jsp的关系"><strong>servlet与JSP的关系</strong></h3>
+<p>Java服务器页面(JSP)是HttpServlet的扩展。由于Servlet大多是响应HTTP请求，并返回web页面，所以不可避免地，在编写servlet时，会涉及到大量的HTML内容，这给servlet的书写效率和可读性带来了很大障碍，JSP便是在这个基础上产生的。其功能是在使用html的书写格式，在适当的地方加入java代码片段，将程序员从复杂的html中解放出来，更专注于servlet本身的内容。
+<strong>JSP在首次被访问的时候被应用服务器转换为servlet，在以后的运行中，容器直接调用这个servlet，而不再访问jsp页面。JSP的实质仍然是servlet。</strong></p>
+<h3 id="写一个servlet"><strong>写一个servlet</strong></h3>
+<ol>
+<li>新建一个servlet，继承自HttpServlet(此处需要引入servlet相关的包)</li>
+<li>重写service方法，输出一个简单的字符串</li>
+</ol>
+<pre><code>public class FirstServlet extends HttpServlet {
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //super.service(req, resp);
+        resp.getOutputStream().print(&quot;my first servlet&quot;);
+    }
+}
+</code></pre>
+<p>3、在webapp下，WEB-INF中的web.xml中注册配置访问路径映射</p>
+<pre><code> &lt;servlet&gt;
+    &lt;servlet-name&gt;FirstServelt&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;servlet.FirstServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+  
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;FirstServelt&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/f1&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+</code></pre>
+<p>4、重启tomact，访问项目，在路径后添加f1，即可查看
+<img src="https://xiaofans.github.io/post-images/1563262172589.png" alt=""></p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaofans.github.io/post/an-zhuo-kai-fa-ru-shou-javaweb-cai-keng-zhi-lu-yi">
+              <h3 class="post-title">
+                安卓开发入手JavaWeb踩坑之旅（一）
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

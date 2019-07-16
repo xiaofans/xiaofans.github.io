@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>安卓开发入手JavaWeb踩坑之旅（三）会话机制：http协议、Cookie和Session | Z欢喜</title>
+<link rel="shortcut icon" href="https://xiaofans.github.io/favicon.ico?v=1563266890586">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://xiaofans.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaofans.github.io">
+  <img class="avatar" src="https://xiaofans.github.io/images/avatar.png?v=1563266890586" alt="">
+  </a>
+  <h1 class="site-title">
+    Z欢喜
+  </h1>
+  <p class="site-description">
+    儿童相见不相识，笑问客从何处来。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              安卓开发入手JavaWeb踩坑之旅（三）会话机制：http协议、Cookie和Session
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-07-16 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="http协议概述">http协议概述</h3>
+<p>HTTP是一个客户端（用户）和服务端（网站）之间请求和应答标准。通常使用TCP/IP协议。客户端发起一个HTTP请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答服务器上存储着一些资源，比如html和图像。我们称这个应答服务器为源服务器（origin server）。在用户代理和源服务器中间可能存在多个中间层，比如代理服务器，网关，或者隧道。</p>
+<p>通常，由HTTP客户端发起一个请求，创建一个到服务器指定端口（默认端口80）的TCP连接。HTTP服务器则在哪个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如&quot;HTTP/1.1 200 OK&quot;,已经返回的内容，如请求的文件，错误消息或者其他信息。</p>
+<h3 id="cookie">Cookie</h3>
+<p><strong>1.cookie是什么？</strong></p>
+<p>cookie是一种小型文本文件，某些网站为了辨别用户身份而存储在用户本地终端上的数据（通常经过加密）。Cookie总是保存在客户端中，按在客户端中的存储位置，可分为<strong>内存Cookie</strong>和<strong>硬盘Cookie</strong>。</p>
+<p>内存Cookie由浏览器维护，保存在内存中，浏览器关闭后就消失了，其存在时间是短暂的。
+硬盘Cookie保存在硬盘里，有一个过期时间，除非用户手工清理或到了过期时间，硬盘Cookie不会删除，其存在时间是长期的。所以，按存在时间，可以分为持久Cookie和非持久Cookie。</p>
+<p><strong>2.为什么要有Cookie</strong><br>
+前面也提到是为了辨别用户身份，因为HTTP协议是无状态的，即服务器不知道用户上一次做了什么。服务器可以设置和读取Cookies中包含信息，<strong>借此维护用户服务器会话中的状态</strong>。</p>
+<p><strong>3.Cookie的缺陷</strong><br>
+1.Cookie会被附近在每个HTTP请求中，所以无形中增加了流量。
+2.由于在HTTP请求中的Cookie是明文 传递的，所以安全性成问题，除非使用HTTPS。
+3.Cookie的大小限制在4kb左右 ，对于复杂的存储需求是不够用的。</p>
+<p><strong>4.Cookie的使用</strong><br>
+<img src="https://xiaofans.github.io/post-images/1563265806058.png" alt=""></p>
+<h3 id="http-session">Http Session</h3>
+<p><strong>1.session是什么？</strong></p>
+<p>Session是另外一种辨别用户身份的的方法，和Cookie不同的是，Session保存在服务器端。session由服务器创建，然后返回一个session id给客户端，该session id保存在Cookie中。在下次请求的时候，服务器端可以通过请求的cookie去拿到该Session id。</p>
+<p><strong>2.为什么要有session</strong><br>
+同为什么要有Cookie。</p>
+<p><strong>3.session和cookie的对比</strong><br>
+信息保存的位置不同，session信息存储在服务器端，而cookie信息存储在服务器端。</p>
+<p><strong>4.session的使用</strong></p>
+<p><img src="https://xiaofans.github.io/post-images/1563266617642.png" alt=""></p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaofans.github.io/post/an-zhuo-kai-fa-ru-shou-javaweb-cai-keng-zhi-lu-er-servlet">
+              <h3 class="post-title">
+                安卓开发入手JavaWeb踩坑之旅（二）servlet
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
